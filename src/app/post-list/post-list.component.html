@@ -1,0 +1,15 @@
+<ul class="list-group" *ngIf="posts.length>0">
+    <li *ngFor="let post of posts;index as i" [ngClass]="getClass(i)">
+    <div class="flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{post.title}}</h5>
+          <small>{{post.created_at | date: 'short'}}</small>
+        </div>
+        <p class="mb-1">{{post.content}}</p>
+        <button class="btn btn-success" (click)="changeLoveIt('add',i)">Love It!</button>&nbsp;
+        <button class="btn btn-danger" (click)="changeLoveIt('sub',i)">Don't Love It!</button>
+        <button class='btn btn-danger ml-2' (click)="onDelete(i)">Supprimer</button>
+      </div>
+    </li>
+
+</ul>
